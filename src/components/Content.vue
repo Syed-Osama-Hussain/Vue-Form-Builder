@@ -29,6 +29,7 @@
           </div>
           <div id="form-div">
             <draggable
+              id="draggable"
               class="dragArea form-group"
               :list="list"
               :group="{ name: 'people2', pull: false, put: true }"
@@ -121,6 +122,9 @@ export default {
 </script>
 
 <style>
+#draggable{
+  height:290px;
+}
 #content {
   padding: 20px;
   margin: 0;
