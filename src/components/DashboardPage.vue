@@ -49,7 +49,7 @@ export default {
   created() {
     const user = getUser();
     if (!user) this.$router.push({ name: "Login" });
-    this.user = user;
+    this.user = user.email;
   },
   data() {
     return {

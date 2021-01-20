@@ -18,7 +18,12 @@
       </a-input>
     </a-form-item>
     <a-form-item v-if="field.type === 'checkbox'" :required="field.required">
-      <a-checkbox @change="updateValue" :type="field.type" :name="field.name" style="color: rgba(0,0,0,.85);">
+      <a-checkbox
+        @change="updateValue"
+        :type="field.type"
+        :name="field.name"
+        style="color: rgba(0,0,0,.85);"
+      >
         {{ field.label }}
       </a-checkbox>
     </a-form-item>

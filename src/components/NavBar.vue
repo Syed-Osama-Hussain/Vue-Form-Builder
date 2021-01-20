@@ -12,6 +12,8 @@
   </a-layout-header>
 </template>
 <script>
+import { logout } from "@/services/auth";
+
 export default {
   name: "NavBar",
   props: {
@@ -27,7 +29,7 @@ export default {
   },
   methods: {
     handleLogout() {
-      localStorage.removeItem("user");
+      logout();
       this.$router.push({ name: "Login" });
     }
   }

@@ -122,8 +122,8 @@ export default {
 </script>
 
 <style>
-#draggable{
-  height:290px;
+#draggable {
+  height: 290px;
 }
 #content {
   padding: 20px;

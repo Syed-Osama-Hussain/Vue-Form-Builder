@@ -1,28 +1,41 @@
-const users = [
-  {
-    email: "sosama@nisum.com",
-    password: "12345"
-  }
-];
+import http from "./httpService";
+import jwtDecode from "jwt-decode";
 
-export function login(email, password) {
-  const user = users.find(user => {
-    if (user.email === email && user.password === password) return user;
-  });
+const apiEndPoint = `/auth`;
+const tokenKey = "token";
 
-  if (user) {
-    localStorage.setItem("user", user.email);
-    return user.email;
-  }
+http.setJwt(getJwt());
 
-  throw new Error("User not found.");
+export async function login(email, password) {
+  const { data: jwt } = await http.post(apiEndPoint, { email, password });
+  localStorage.setItem(tokenKey, jwt);
+}
+
+export function logout() {
+  localStorage.removeItem(tokenKey);
+}
+
+export function loginWithJwt(jwt) {
+  localStorage.setItem(tokenKey, jwt);
 }
 
 export function getUser() {
-  return localStorage.getItem("user");
+  try {
+    const jwt = localStorage.getItem(tokenKey);
+    return jwtDecode(jwt);
+  } catch (ex) {
+    return null;
+  }
+}
+
+export function getJwt() {
+  return localStorage.getItem(tokenKey);
 }
 
 export default {
   login,
-  getUser
+  logout,
+  getUser,
+  loginWithJwt,
+  getJwt
 };
