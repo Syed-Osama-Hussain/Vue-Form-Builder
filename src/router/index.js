@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Login from "../views/Login.vue";
+import FormList from "@/components/FormList"
 
 const routes = [
   {
@@ -15,6 +16,16 @@ const routes = [
     path: "/login",
     name: "Login",
     component: Login
+  },
+  {
+    path: "/forms",
+    name: "FormList",
+    component: FormList  
+  },
+  {
+    path: "/form/:id",
+    name: "FormDetail",
+    component: FormList  
   }
 ];
 
