@@ -4,6 +4,9 @@
       <a-menu-item id="item-left" key="dashboard"
         ><router-link to="/">Dashboard</router-link></a-menu-item
       >
+      <a-menu-item id="item-left" key="dashboard"
+        ><router-link to="/forms">Forms</router-link></a-menu-item
+      >
       <a-menu-item key="username" class="items-right">{{ user }}</a-menu-item>
       <a-menu-item key="logout" @click="handleLogout" class="items-right"
         >Logout</a-menu-item
